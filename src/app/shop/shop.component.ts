@@ -64,7 +64,7 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
   onTypeSelected(typeId) {
-    this.shopParams.brandId = typeId;
+    this.shopParams.typeId = typeId;
     this.shopParams.pageNumber = 1;
     this.getProducts();
   }
@@ -74,8 +74,7 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
 
-  onPageChanged(event: any) {
-    let pageNumber: number = event.page;
+  onPageChanged(pageNumber: number) {
     if (!this.IsEventTheSame(pageNumber)) {
       this.shopParams.pageNumber = pageNumber;
       this.getProducts();
