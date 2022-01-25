@@ -1,0 +1,15 @@
+<div class="Container mt-5">
+    <div class="btn btn-outline-primary mr-3" (click)="getInternalServer_Eception_500()">InternalServer_Execption_500
+    </div>
+    <div class="btn btn-outline-primary mr-3" (click)="getUnknown_BadRequest_400()">Unknown_BadRequest_400</div>
+    <div class="btn btn-outline-primary mr-3" (click)="getNotFound_404()">NotFound_404</div>
+    <div class="btn btn-outline-primary mr-3" (click)="getValidation_400()">Validation_400</div>
+    <div class="btn btn-outline-primary mr-3" (click)="getAuhtorization_401()">Auhtorization_401</div>
+    <div class="row mt-5" *ngIf="validationErrors">
+        
+        <ul class="text-danger">
+            <li *ngFor="let error of validationErrors">{{error}}</li>
+        </ul>
+    </div>
+
+</div>
