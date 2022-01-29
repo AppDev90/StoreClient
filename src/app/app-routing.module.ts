@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ErrorTestComponent } from './core/error-test/error-test.component';
-import { NotFoundErrorComponent } from './core/not-found-error/not-found-error.component';
-import { ServerErrorComponent } from './core/server-error/server-error.component';
+import { ErrorTestComponent } from './core/components/error-test/error-test.component';
+import { NotFoundErrorComponent } from './core/components/not-found-error/not-found-error.component';
+import { ServerErrorComponent } from './core/components/server-error/server-error.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'shop', loadChildren:
       () => import('./shop/shop.module').then(mod => mod.ShopModule), data: { breadcrumb: "Shop" }
+  },
+  {
+    path: 'basket', loadChildren:
+      () => import('./basket/basket.module').then(mod => mod.BasketModule), data: { breadcrumb: "Basket" }
+  },
+  {
+    path: 'checkout', loadChildren:
+      () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule), data: { breadcrumb: "Checkout" }
   },
   { path: '**', redirectTo: 'notfound-error', pathMatch: 'full' }
 ];

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component'
 import { RouterModule } from '@angular/router';
-import { ErrorTestComponent } from './error-test/error-test.component';
-import { NotFoundErrorComponent } from './not-found-error/not-found-error.component';
-import { ServerErrorComponent } from './server-error/server-error.component';
+import { ErrorTestComponent } from './components/error-test/error-test.component';
+import { NotFoundErrorComponent } from './components/not-found-error/not-found-error.component';
+import { ServerErrorComponent } from './components/server-error/server-error.component';
 import { ToastrModule } from 'ngx-toastr';
-import { SectionHeaderComponent } from './section-header/section-header.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 
 
