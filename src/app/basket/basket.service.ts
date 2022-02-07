@@ -122,6 +122,10 @@ export class BasketService {
     }
   }
 
+  getBasketObservable() {
+    return this.basket$;
+  }
+
   private calculateTotals() {
     const basket = this.getClientBasket();
     const shipping = this.shipping;

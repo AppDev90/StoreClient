@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorTestComponent } from './core/components/error-test/error-test.component';
 import { NotFoundErrorComponent } from './core/components/not-found-error/not-found-error.component';
 import { ServerErrorComponent } from './core/components/server-error/server-error.component';
+import { AuthGuard } from './core/guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -15,14 +16,22 @@ const routes: Routes = [
       () => import('./shop/shop.module').then(mod => mod.ShopModule), data: { breadcrumb: "Shop" }
   },
   {
-    path: 'basket', loadChildren:
+    path: 'basket',
+    loadChildren:
       () => import('./basket/basket.module').then(mod => mod.BasketModule), data: { breadcrumb: "Basket" }
   },
   {
-    path: 'checkout', loadChildren:
+    path: 'checkout',
+    canActivate: [AuthGuard],
+    loadChildren:
       () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule), data: { breadcrumb: "Checkout" }
   },
-  { path: '**', redirectTo: 'notfound-error', pathMatch: 'full' }
+  {
+    path: 'account',
+    loadChildren:
+      () => import('./account/account.module').then(mod => mod.AccountModule), data: { breadcrumb: { skip: true } }
+  },
+  { path: '**', redirectTo: 'notfound-error', pathMatch: 'full' },
 ];
 
 @NgModule({
